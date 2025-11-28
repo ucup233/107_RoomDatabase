@@ -12,6 +12,7 @@ composeBom = "2024.09.00"
 room = "2.8.4"
 kspver = "2.0.21-1.0.26"
 roomCommonJvm = "2.8.4"
+material3 = "1.4.0"
 
 
 [libraries]
@@ -38,6 +39,7 @@ lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel
 lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose",version = "2.10.0" }
 navigation-compose = { module = "androidx.navigation:navigation-compose", version = "2.9.6" }
 androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 
 
 [plugins]
