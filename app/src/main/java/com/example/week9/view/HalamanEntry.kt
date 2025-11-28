@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -22,9 +23,14 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.room.util.copy
 import com.example.week9.R
 import com.example.week9.view.route.DestinasiEntry
+import com.example.week9.viewmodel.DetailSiswa
+import com.example.week9.viewmodel.EntryViewModel
+import com.example.week9.viewmodel.UIStateSiswa
+import com.example.week9.viewmodel.provider.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 

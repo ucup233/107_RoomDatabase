@@ -69,4 +69,9 @@ dependencies {
     implementation(libs.lifecycle.runtime.compose)
     // Navigasi
     implementation(libs.navigation.compose)
+    // Material Icons for Compose
+    implementation("androidx.compose.material:material-icons-core")
+    implementation("androidx.compose.material:material-icons-extended")
+
+
 }
