@@ -7,7 +7,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.week9.repositori.RepositoriSiswa
-import com.example.week9.view.route.DestinasiDetailSiswa
+import com.example.week9.view.route.DestinasiEditSiswa
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -20,7 +20,9 @@ class EditViewModel(
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
-    private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetailSiswa.itemIdArg])
+    private val idSiswa: Int =
+        checkNotNull(savedStateHandle[DestinasiEditSiswa.itemIdArg])
+
 
     init {
         viewModelScope.launch {
@@ -31,14 +33,17 @@ class EditViewModel(
         }
     }
 
-    fun updateUiState(detailSiswa: DetailSiswa) {
+    fun updateUIState(detailSiswa: DetailSiswa) {
         uiStateSiswa =
-            UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(detailSiswa))
+            uiStateSiswa.copy(
+                detailSiswa = detailSiswa,
+                isEntryValid = validasiInput(detailSiswa)
+            )
     }
 
-    private fun validasiInput(detailSiswa: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
-        return with(uiStateSiswa) {
-            detailSiswa.nama.isNotBlank() && detailSiswa.alamat.isNotBlank() && detailSiswa.telpon.isNotBlank()
+    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
+        return with(uiState) {
+            nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
         }
     }
 

@@ -20,7 +20,8 @@ fun EditSiswaScreen(
     onNavigateUp: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: EditViewModel = viewModel(factory = PenyediaViewModel.Factory)
-){
+) {
+    val coroutineScope = rememberCoroutineScope()
     Scaffold(
         topBar = {
             SiswaTopAppBar(
@@ -30,11 +31,10 @@ fun EditSiswaScreen(
             )
         },
         modifier = modifier
-    ){ innerPadding ->
-        val coroutineScope = rememberCoroutineScope()
+    ) { innerPadding ->
         EntrySiswaBody(
             uiStateSiswa = viewModel.uiStateSiswa,
-            onSiswaValueChange = viewModel::updateUiState,
+            onSiswaValueChange = viewModel::updateUIState,
             onSaveClick = {
                 coroutineScope.launch {
                     viewModel.updateSiswa()
